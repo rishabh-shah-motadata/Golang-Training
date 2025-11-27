@@ -1,9 +1,9 @@
 package main
 
 import (
-	forrange "golang-training/for_range"
+	d3 "golang-training/day_3"
 )
 
 func main() {
-	forrange.ForRange()
+	d3.Day3()
 }
