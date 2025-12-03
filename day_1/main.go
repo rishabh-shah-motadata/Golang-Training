@@ -9,9 +9,7 @@ import (
 
 var userName string = "Motadata User"
 
-func getTimeGreeting() string {
-	hour := time.Now().Hour()
-	
+func getTimeGreeting(hour int) string {	
 	switch {
 	case hour < 12:
 		return "Good morning"
@@ -64,7 +62,7 @@ func printEnvironmentInfo() {
 }
 
 func performGreeting() {
-	greeting := getTimeGreeting()
+	greeting := getTimeGreeting(time.Now().Hour())
 	fmt.Printf("\n%s %s!\n", greeting, userName)
 }
 
