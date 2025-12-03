@@ -1,0 +1,9 @@
+{
+  "rows": [
+    {"name": "Alice", "age": 21},
+    {"name": "Bob", "age": 30, "city": "New York"},
+    {"name": "Charlie", "age": 25, "gender": "male"},
+    {"name": "Diana", "age": 28, "city": "Los Angeles"},
+    {"name": "Eve", "age": 22, "hobby": "painting"}
+  ]
+}
