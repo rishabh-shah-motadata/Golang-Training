@@ -20,7 +20,7 @@ func AddBookController(c *gin.Context, store *models.LibraryStore) {
 		return
 	}
 
-	store.AddBook(&newBook)
+	store.AddBook(newBook)
 
 	c.JSON(http.StatusCreated, gin.H{
 		"message": "Book added successfully",

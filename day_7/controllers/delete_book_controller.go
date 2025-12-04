@@ -17,7 +17,7 @@ func DeleteBookController(c *gin.Context, store *models.LibraryStore) {
 		return
 	}
 
-	ok := store.DeleteBook(&bookToDelete.ID)
+	ok := store.DeleteBook(bookToDelete.ID)
 	if !ok {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Book not found"})
 		return

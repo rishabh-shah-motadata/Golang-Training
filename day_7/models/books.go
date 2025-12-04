@@ -44,7 +44,7 @@ func (ls *LibraryStore) GetAllBooks() []Books {
 	return books
 }
 
-func (ls *LibraryStore) AddBook(book *Books) {
+func (ls *LibraryStore) AddBook(book Books) Books {
 	if book.ID == 0 {
 		book.ID = len(ls.Books) + 1
 	}
@@ -52,31 +52,33 @@ func (ls *LibraryStore) AddBook(book *Books) {
 	ls.mu.Lock()
 	book.CreatedAt = time.Now()
 	book.UpdatedAt = time.Now()
-	ls.Books[book.ID] = *book
+	ls.Books[book.ID] = book
 	ls.mu.Unlock()
+
+	return book
 }
 
-func (ls *LibraryStore) DeleteBook(bookID *int) bool {
-	if _, exists := ls.Books[*bookID]; !exists {
+func (ls *LibraryStore) DeleteBook(bookID int) bool {
+	if _, exists := ls.Books[bookID]; !exists {
 		return false
 	}
 	
 	ls.mu.Lock()
-	delete(ls.Books, *bookID)
+	delete(ls.Books, bookID)
 	ls.mu.Unlock()
 
 	return true
 }
 
-func (ls *LibraryStore) UpdateBook(book *Books) bool {
+func (ls *LibraryStore) UpdateBook(book Books) (Books, bool) {
 	if _, exists := ls.Books[book.ID]; !exists {
-		return false
+		return Books{}, false
 	}
 
 	ls.mu.Lock()
 	book.UpdatedAt = time.Now()
-	ls.Books[book.ID] = *book
+	ls.Books[book.ID] = book
 	ls.mu.Unlock()
 
-	return true
+	return book, true
 }
