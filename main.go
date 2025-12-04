@@ -1,7 +1,9 @@
 package main
 
-import d6 "golang-training/day_6"
+import (
+	d7 "golang-training/day_7"
+)
 
 func main() {
-	d6.Day6()
+	d7.Day7()
 }
