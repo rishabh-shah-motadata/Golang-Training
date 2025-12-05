@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"golang-training/day_7/models"
+	"golang-training/day_7_8/models"
 
 	"github.com/gin-gonic/gin"
 )

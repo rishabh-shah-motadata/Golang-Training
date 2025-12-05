@@ -1,11 +1,12 @@
 package day7
 
 import (
-	"golang-training/day_7/controllers"
-	"golang-training/day_7/middlewares"
-	"golang-training/day_7/models"
+	"golang-training/day_7_8/controllers"
+	"golang-training/day_7_8/middlewares"
+	"golang-training/day_7_8/models"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/pprof"
 )
 
 func Day7() {
@@ -31,6 +32,8 @@ func Day7() {
 	router.DELETE("/books", func(ctx *gin.Context) {
 		controllers.DeleteBookController(ctx, newStore)
 	})
+
+	pprof.Register(router)
 
 	router.Run("localhost:8080")
 }
