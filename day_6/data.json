@@ -4,6 +4,19 @@
     {"name": "Bob", "age": 30, "city": "New York"},
     {"name": "Charlie", "age": 25, "gender": "male"},
     {"name": "Diana", "age": 28, "city": "Los Angeles"},
-    {"name": "Eve", "age": 22, "hobby": "painting"}
+    {"name": "Eve", "age": 22, "hobby": "painting"},
+    {"name": "Frank", "age": 27, "city": "Chicago", "hobby": "cycling"},
+    {"name": "Grace", "age": 24, "gender": "female", "city": "Miami"},
+    {"name": "Henry", "age": 29, "hobby": "gaming"},
+    {"name": "Ivy", "age": 23, "gender": "female", "hobby": "reading"},
+    {"name": "Jack", "age": 26, "city": "Seattle", "gender": "male", "hobby": "hiking"},
+    {"name": "Kathy", "age": 31},
+    {"name": "Leo", "age": 28, "city": "Boston"},
+    {"name": "Mona", "age": 27, "city": "San Francisco"},
+    {"name": "Nate", "age": 30, "gender": "male"},
+    {"name": "Olivia", "age": 25, "hobby": "dancing"},
+    {"name": "Paul", "age": 29, "city": "Austin", "hobby": "cooking"},
+    {"name": "Quinn", "age": 24, "gender": "female", "city": "Denver"},
+    {"name": "Rachel", "age": 26, "hobby": "photography"}
   ]
 }
