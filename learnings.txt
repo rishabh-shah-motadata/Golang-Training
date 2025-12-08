@@ -1,0 +1,5 @@
+The json.Decoder is better that io.ReadAll + json.UnMarshal because the json.Decoder process the data in chunks (in the form of streams).
+Whereas the io.ReadAll saves the whole data into memory (in the form of []byte) and then parses it via json.UnMarshal.
+The later option consumes much memory as it loads whole req body in the memory. So, this becomes hindrance when the req body is large.
+
+

@@ -1,0 +1,37 @@
+How to generate pprof files via commands:
+curl "http://localhost:8080/debug/pprof/profile?seconds=30" -o cpu.pprof
+curl "http://localhost:8080/debug/pprof/heap" -o heap.pprof
+curl "http://localhost:8080/debug/pprof/allocs" -o allocs.pprof
+curl "http://localhost:8080/debug/pprof/mutex?seconds=10" -o mutex.pprof
+curl "http://localhost:8080/debug/pprof/block?seconds=5" -o block.pprof
+curl "http://localhost:8080/debug/pprof/goroutine?debug=2" -o goroutine.pprof
+
+To visualize below are the commands:
+go tool pprof -http=:8081 <pprof_type>.pprof // This will open a pprof UI in web where we can analyze it.
+
+Another way is using below command:
+- go tool pprof <pprof_type>.pprof // This will open up pprof cli
+We will be able to see different visualizations by using cli but the former option gives us flexibility to view in different visualizations.
+
+For goroutine pprof debug query parameter:
+| Value     | Meaning         | Output                                   |
+| --------- | --------------- | ---------------------------------------- |
+| `debug=0` | Default         | Binary pprof profile (for go tool pprof) |
+| `debug=1` | Basic text      | Short human-readable summary             |
+| `debug=2` | Full stack dump | Complete detailed goroutine dump         |
+
+Terms displayed by pprof:
+| Term       | Meaning                              | Contains                                     |
+| ---------- | ------------------------------------ | -------------------------------------------- |
+| **Flat**   | Cost from this function alone        | Direct allocations / CPU inside the function |
+| **Cum**    | Cost of this function + all children | Includes nested calls                        |
+| **Flat %** | (flat / total)                       | Shows how bad THIS function is               |
+| **Cum %**  | (cum / total)                        | Shows how expensive the entire call path is  |
+| **Total**  | Total cost in this profile           | Total memory or CPU sampled                  |
+
+There are several other functions which are useful
+- top // it list top nodes which has consumed more memory/cpu/allocations
+- list <name of func> // it shows the memory/cpu/allocation consumed by each line
+- nodefraction 0 // it shows all the nodes
+- pdf // to generate in pdf
+- svg // to generate in svg
