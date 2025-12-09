@@ -5,6 +5,10 @@ curl "http://localhost:8080/debug/pprof/allocs" -o allocs.pprof
 curl "http://localhost:8080/debug/pprof/mutex?seconds=10" -o mutex.pprof
 curl "http://localhost:8080/debug/pprof/block?seconds=5" -o block.pprof
 curl "http://localhost:8080/debug/pprof/goroutine?debug=2" -o goroutine.pprof
+curl "http://localhost:8080/debug/pprof/trace?seconds=5" -o trace.out
+
+To visualize traces:
+go tool trace trace.out
 
 To visualize below are the commands:
 go tool pprof -http=:8081 <pprof_type>.pprof // This will open a pprof UI in web where we can analyze it.
