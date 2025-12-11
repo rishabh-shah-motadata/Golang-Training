@@ -2,13 +2,14 @@ package middlewares
 
 import (
 	"net/http"
+	"slices"
 
 	"github.com/gin-gonic/gin"
 )
 
 func RequestFilter() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		if c.Request.Method == http.MethodGet || c.Request.Method == http.MethodPost || c.Request.Method == http.MethodDelete || c.Request.Method == http.MethodPut {
+		if slices.Contains([]string{"GET", "POST", "PUT", "DELETE"}, c.Request.Method) {
 			c.Next()
 			return
 		}
