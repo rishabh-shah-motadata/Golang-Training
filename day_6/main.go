@@ -27,7 +27,7 @@ func convertToCSV(json jsonReader) error {
 		headerLength = 0
 		inputWg      sync.WaitGroup
 		resultWg     sync.WaitGroup
-		inputChan    = make(chan map[string]any, len(json.Rows)/2)
+		inputChan    = make(chan map[string]any, 10)
 		resultChan   = make(chan string)
 	)
 
